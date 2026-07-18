@@ -1,0 +1,17 @@
+{
+  "name": "AgriSmart AI",
+  "short_name": "AgriSmart",
+  "description": "Smart Farming Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F9FA",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

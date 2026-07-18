@@ -1,0 +1,558 @@
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './layouts/Layout';
+import LandingPage from './pages/LandingPage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import Dashboard from './pages/Dashboard';
+import ProfilePage from './pages/ProfilePage';
+import CropRecommendationPage from './pages/CropRecommendationPage';
+import RecommendationDetailsPage from './pages/RecommendationDetailsPage';
+import RecommendationHistoryPage from './pages/RecommendationHistoryPage';
+import RecommendationComparisonPage from './pages/RecommendationComparisonPage';
+import { DiseaseDetectionPage } from './pages/DiseaseDetectionPage';
+import { DiseaseHistoryPage } from './pages/DiseaseHistoryPage';
+import { DiseaseDetailsPage } from './pages/DiseaseDetailsPage';
+import { DiseaseComparisonPage } from './pages/DiseaseComparisonPage';
+import { WeatherDashboardPage } from './pages/WeatherDashboardPage';
+import { MyFarmsPage } from './pages/MyFarmsPage';
+import { FarmMapPage } from './pages/FarmMapPage';
+import { SoilAnalysisPage } from './pages/SoilAnalysisPage';
+import { IrrigationPlannerPage } from './pages/IrrigationPlannerPage';
+import { WeatherAlertsPage } from './pages/WeatherAlertsPage';
+import { MarketplaceHome } from './pages/marketplace/MarketplaceHome';
+import { ProductListingPage } from './pages/marketplace/ProductListingPage';
+import { ProductDetailsPage } from './pages/marketplace/ProductDetailsPage';
+import { AddProductPage } from './pages/marketplace/AddProductPage';
+import { MyProductsPage } from './pages/marketplace/MyProductsPage';
+import { InventoryPage } from './pages/marketplace/InventoryPage';
+import { SalesAnalyticsPage } from './pages/marketplace/SalesAnalyticsPage';
+import { WishlistPage } from './pages/marketplace/WishlistPage';
+import { OrderManagementPage } from './pages/marketplace/OrderManagementPage';
+import { NotificationsPage } from './pages/marketplace/NotificationsPage';
+import { MarketplaceLayout } from './pages/marketplace/MarketplaceLayout';
+
+// Government Services Pages
+import { GovLayout } from './pages/government/GovLayout';
+import { GovServicesDashboard } from './pages/government/GovServicesDashboard';
+import { GovSchemesPage } from './pages/government/GovSchemesPage';
+import { SchemeDetailsPage } from './pages/government/SchemeDetailsPage';
+import { EligibilityCheckerPage } from './pages/government/EligibilityCheckerPage';
+import { CropInsurancePage } from './pages/government/CropInsurancePage';
+import { LoanModulePage } from './pages/government/LoanModulePage';
+import { MyApplicationsPage } from './pages/government/MyApplicationsPage';
+import { DocumentManagementPage } from './pages/government/DocumentManagementPage';
+import { GovNewsPage } from './pages/government/GovNewsPage';
+
+// Community & Learning Hub Pages
+import { CommunityLayout } from './pages/community/CommunityLayout';
+import { CommunityDashboard } from './pages/community/CommunityDashboard';
+import { DiscussionFeedPage } from './pages/community/DiscussionFeedPage';
+import { ExpertConsultationPage } from './pages/community/ExpertConsultationPage';
+import { LearningHubPage } from './pages/community/LearningHubPage';
+import { VideoLibraryPage } from './pages/community/VideoLibraryPage';
+import { SuccessStoriesPage } from './pages/community/SuccessStoriesPage';
+import { EventsPage } from './pages/community/EventsPage';
+import { AIAssistantPage } from './pages/community/AIAssistantPage';
+
+// Finance & Rental Modules
+import { FinanceRentalLayout } from './pages/rental/FinanceRentalLayout';
+import { EquipmentRentalPage } from './pages/rental/EquipmentRentalPage';
+import { VehicleRentalPage } from './pages/rental/VehicleRentalPage';
+import { MachineryDetailPage } from './pages/rental/MachineryDetailPage';
+import { MyBookingsPage } from './pages/rental/MyBookingsPage';
+import { MyMachineryPage } from './pages/rental/MyMachineryPage';
+import { FinanceDashboard } from './pages/finance/FinanceDashboard';
+import { ExpenseTrackerPage } from './pages/finance/ExpenseTrackerPage';
+import { IncomeTrackerPage } from './pages/finance/IncomeTrackerPage';
+import { FarmInventoryPage } from './pages/finance/InventoryPage';
+import { ReportsPage } from './pages/finance/ReportsPage';
+
+// Admin Pages
+import AdminLayout from './layouts/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import UserManagement from './pages/admin/UserManagement';
+import MarketplaceManagement from './pages/admin/MarketplaceManagement';
+import GovSchemeManagement from './pages/admin/GovSchemeManagement';
+import AiManagement from './pages/admin/AiManagement';
+import CommunityManagement from './pages/admin/CommunityManagement';
+import CmsManagement from './pages/admin/CmsManagement';
+import SupportFeedback from './pages/admin/SupportFeedback';
+import NotificationCenter from './pages/admin/NotificationCenter';
+import SecurityPage from './pages/admin/SecurityPage';
+import SystemHealthPage from './pages/admin/SystemHealthPage';
+
+// AI Communication System Pages
+import { AiCommunicationLayout } from './pages/ai/AiCommunicationLayout';
+import AiAssistantPage from './pages/AiAssistantPage';
+import VoiceAssistantPage from './pages/VoiceAssistantPage';
+import NotificationCenterPage from './pages/NotificationCenterPage';
+import SmartAlertsPage from './pages/SmartAlertsPage';
+import EmailCenterPage from './pages/EmailCenterPage';
+import ReminderSystemPage from './pages/ReminderSystemPage';
+import AiSuggestionsPage from './pages/AiSuggestionsPage';
+import ChatHistoryPage from './pages/ChatHistoryPage';
+
+// Business Intelligence & Analytics Pages
+import { AnalyticsLayout } from './pages/analytics/AnalyticsLayout';
+import BusinessDashboard from './pages/analytics/BusinessDashboard';
+import FarmAnalytics from './pages/analytics/FarmAnalytics';
+import YieldPrediction from './pages/analytics/YieldPrediction';
+import ProfitPrediction from './pages/analytics/ProfitPrediction';
+import ExpenseAnalytics from './pages/analytics/ExpenseAnalytics';
+import WaterAnalytics from './pages/analytics/WaterAnalytics';
+import SoilAnalytics from './pages/analytics/SoilAnalytics';
+import WeatherAnalytics from './pages/analytics/WeatherAnalytics';
+import DiseaseAnalytics from './pages/analytics/DiseaseAnalytics';
+import MarketIntelligence from './pages/analytics/MarketIntelligence';
+import AIInsights from './pages/analytics/AIInsights';
+import ReportsCenter from './pages/analytics/ReportsCenter';
+import ExportCenter from './pages/analytics/ExportCenter';
+
+// Smart Farming
+import { SmartFarmingLayout } from './pages/smart-farming/SmartFarmingLayout';
+import { SmartFarmingDashboard } from './pages/smart-farming/SmartFarmingDashboard';
+import { FarmGPS } from './pages/smart-farming/FarmGPS';
+import { QRBarcodeSystem } from './pages/smart-farming/QRBarcodeSystem';
+import { IoTSensors } from './pages/smart-farming/IoTSensors';
+import { SmartIrrigation } from './pages/smart-farming/SmartIrrigation';
+import { DroneManagement } from './pages/smart-farming/DroneManagement';
+import { WarehouseInventory } from './pages/smart-farming/WarehouseInventory';
+import { RoutePlanner } from './pages/smart-farming/RoutePlanner';
+import { EmergencyModule } from './pages/smart-farming/EmergencyModule';
+
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import { useAuth } from './context/AuthContext';
+import { UserRole } from './types';
+
+// Placeholder Pages
+const PlaceholderPage = ({ title }: { title: string }) => (
+  <div className="pt-40 pb-20 text-center">
+    <h1 className="text-6xl font-black text-gray-900 tracking-tighter mb-4">{title}</h1>
+    <p className="text-xl text-gray-500 font-medium">This module is coming soon in the next prompt expansion.</p>
+  </div>
+);
+
+export default function App() {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#FDFCF8]">
+        <div className="w-16 h-16 border-4 border-green-700 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<LandingPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="services" element={<PlaceholderPage title="Our Services" />} />
+        <Route path="ai-solutions" element={<PlaceholderPage title="AI Solutions" />} />
+        
+        {/* Marketplace Routes */}
+        <Route element={<MarketplaceLayout />}>
+          <Route path="marketplace" element={<MarketplaceHome />} />
+          <Route path="marketplace/search" element={<ProductListingPage />} />
+          <Route path="marketplace/category/:category" element={<ProductListingPage />} />
+          <Route path="marketplace/product/:id" element={<ProductDetailsPage />} />
+          <Route 
+            path="marketplace/wishlist" 
+            element={
+              <ProtectedRoute>
+                <WishlistPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="marketplace/orders" 
+            element={
+              <ProtectedRoute>
+                <OrderManagementPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="marketplace/notifications" 
+            element={
+              <ProtectedRoute>
+                <NotificationsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="marketplace/add-product" 
+            element={
+              <ProtectedRoute>
+                <AddProductPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="marketplace/edit-product/:id" 
+            element={
+              <ProtectedRoute>
+                <AddProductPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="marketplace/my-products" 
+            element={
+              <ProtectedRoute>
+                <MyProductsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="marketplace/inventory" 
+            element={
+              <ProtectedRoute>
+                <InventoryPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="marketplace/sales-analytics" 
+            element={
+              <ProtectedRoute>
+                <SalesAnalyticsPage />
+              </ProtectedRoute>
+            } 
+          />
+        </Route>
+
+        {/* Government Services Routes */}
+        <Route element={<GovLayout />}>
+          <Route path="government" element={<GovServicesDashboard />} />
+          <Route path="government/dashboard" element={<GovServicesDashboard />} />
+          <Route path="government/schemes" element={<GovSchemesPage />} />
+          <Route path="government/schemes/:id" element={<SchemeDetailsPage />} />
+          <Route path="government/eligibility" element={<EligibilityCheckerPage />} />
+          <Route path="government/insurance" element={<CropInsurancePage />} />
+          <Route path="government/loans" element={<LoanModulePage />} />
+          <Route path="government/applications" element={<MyApplicationsPage />} />
+          <Route path="government/documents" element={<DocumentManagementPage />} />
+          <Route path="government/news" element={<GovNewsPage />} />
+          <Route path="government/tracker" element={<PlaceholderPage title="Application Tracker" />} />
+        </Route>
+
+        {/* Community & Learning Hub Routes */}
+        <Route element={<CommunityLayout />}>
+          <Route path="community" element={<CommunityDashboard />} />
+          <Route path="community/feed" element={<DiscussionFeedPage />} />
+          <Route path="community/expert" element={<ExpertConsultationPage />} />
+          <Route path="community/learning" element={<LearningHubPage />} />
+          <Route path="community/videos" element={<VideoLibraryPage />} />
+          <Route path="community/ai-chat" element={<AIAssistantPage />} />
+          <Route path="community/experts" element={<ExpertConsultationPage />} />
+          <Route path="community/stories" element={<SuccessStoriesPage />} />
+          <Route path="community/events" element={<EventsPage />} />
+        </Route>
+
+        {/* Finance & Rental Routes */}
+        <Route element={
+          <ProtectedRoute>
+            <FinanceRentalLayout />
+          </ProtectedRoute>
+        }>
+          <Route path="rental" element={<EquipmentRentalPage />} />
+          <Route path="rental/vehicles" element={<VehicleRentalPage />} />
+          <Route path="rental/equipment/:id" element={<MachineryDetailPage />} />
+          <Route path="rental/bookings" element={<MyBookingsPage />} />
+          <Route path="rental/my-machinery" element={<MyMachineryPage />} />
+          
+          <Route path="finance" element={<FinanceDashboard />} />
+          <Route path="finance/expenses" element={<ExpenseTrackerPage />} />
+          <Route path="finance/income" element={<IncomeTrackerPage />} />
+          <Route path="finance/inventory" element={<FarmInventoryPage />} />
+          <Route path="finance/reports" element={<ReportsPage />} />
+        </Route>
+
+        <Route path="schemes" element={<PlaceholderPage title="Gov Schemes" />} />
+        <Route path="community-old" element={<PlaceholderPage title="Community Hub" />} />
+        <Route path="contact" element={<PlaceholderPage title="Contact Us" />} />
+        
+        {/* Weather Intelligence */}
+        <Route 
+          path="weather" 
+          element={
+            <ProtectedRoute>
+              <WeatherDashboardPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="weather-alerts" 
+          element={
+            <ProtectedRoute>
+              <WeatherAlertsPage />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* Farm Management */}
+        <Route 
+          path="my-farms" 
+          element={
+            <ProtectedRoute>
+              <MyFarmsPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="farm-map" 
+          element={
+            <ProtectedRoute>
+              <FarmMapPage />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* Soil & Irrigation */}
+        <Route 
+          path="soil-analysis" 
+          element={
+            <ProtectedRoute>
+              <SoilAnalysisPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="irrigation-planner" 
+          element={
+            <ProtectedRoute>
+              <IrrigationPlannerPage />
+            </ProtectedRoute>
+          } 
+        />
+        
+        {/* Auth Routes */}
+        <Route path="login" element={user ? <Navigate to="/dashboard" /> : <LoginPage />} />
+        <Route path="register" element={user ? <Navigate to="/dashboard" /> : <RegisterPage />} />
+        
+        {/* Protected Dashboard */}
+        <Route 
+          path="dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        
+        {/* Profile Routes */}
+        <Route 
+          path="profile" 
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* AI Crop Recommendation Routes */}
+        <Route 
+          path="crop-recommendation" 
+          element={
+            <ProtectedRoute>
+              <CropRecommendationPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="recommendation/:id" 
+          element={
+            <ProtectedRoute>
+              <RecommendationDetailsPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="recommendation-history" 
+          element={
+            <ProtectedRoute>
+              <RecommendationHistoryPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="recommendation-comparison" 
+          element={
+            <ProtectedRoute>
+              <RecommendationComparisonPage />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* AI Disease Detection Routes */}
+        <Route 
+          path="disease-detection" 
+          element={
+            <ProtectedRoute>
+              <DiseaseDetectionPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="disease-history" 
+          element={
+            <ProtectedRoute>
+              <DiseaseHistoryPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="disease-details/:id" 
+          element={
+            <ProtectedRoute>
+              <DiseaseDetailsPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="disease-comparison" 
+          element={
+            <ProtectedRoute>
+              <DiseaseComparisonPage />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* Smart Farming System */}
+        <Route element={<ProtectedRoute><SmartFarmingLayout /></ProtectedRoute>}>
+          <Route path="smart-farming" element={<Navigate to="dashboard" />} />
+          <Route path="smart-farming/dashboard" element={<SmartFarmingDashboard />} />
+          <Route path="smart-farming/gps" element={<FarmGPS />} />
+          <Route path="smart-farming/qr" element={<QRBarcodeSystem />} />
+          <Route path="smart-farming/iot" element={<IoTSensors />} />
+          <Route path="smart-farming/irrigation" element={<SmartIrrigation />} />
+          <Route path="smart-farming/drones" element={<DroneManagement />} />
+          <Route path="smart-farming/warehouse" element={<WarehouseInventory />} />
+          <Route path="smart-farming/routes" element={<RoutePlanner />} />
+          <Route path="smart-farming/emergency" element={<EmergencyModule />} />
+        </Route>
+
+        {/* AI Communication System */}
+        <Route element={<AiCommunicationLayout />}>
+          <Route 
+            path="ai/assistant" 
+            element={
+              <ProtectedRoute>
+                <AiAssistantPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="voice-assistant" 
+            element={
+              <ProtectedRoute>
+                <VoiceAssistantPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="notifications" 
+            element={
+              <ProtectedRoute>
+                <NotificationCenterPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="alerts" 
+            element={
+              <ProtectedRoute>
+                <SmartAlertsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="emails" 
+            element={
+              <ProtectedRoute>
+                <EmailCenterPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="reminders" 
+            element={
+              <ProtectedRoute>
+                <ReminderSystemPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="ai/suggestions" 
+            element={
+              <ProtectedRoute>
+                <AiSuggestionsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="ai/history" 
+            element={
+              <ProtectedRoute>
+                <ChatHistoryPage />
+              </ProtectedRoute>
+            } 
+          />
+        </Route>
+
+        {/* Business Intelligence & Analytics Module */}
+        <Route path="/analytics" element={<ProtectedRoute><AnalyticsLayout /></ProtectedRoute>}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<BusinessDashboard />} />
+          <Route path="farm" element={<FarmAnalytics />} />
+          <Route path="yield-prediction" element={<YieldPrediction />} />
+          <Route path="profit-prediction" element={<ProfitPrediction />} />
+          <Route path="expenses" element={<ExpenseAnalytics />} />
+          <Route path="water" element={<WaterAnalytics />} />
+          <Route path="soil" element={<SoilAnalytics />} />
+          <Route path="weather" element={<WeatherAnalytics />} />
+          <Route path="disease" element={<DiseaseAnalytics />} />
+          <Route path="market" element={<MarketIntelligence />} />
+          <Route path="insights" element={<AIInsights />} />
+          <Route path="reports" element={<ReportsCenter />} />
+          <Route path="export" element={<ExportCenter />} />
+        </Route>
+
+        {/* Admin Routes */}
+        <Route 
+          path="admin" 
+          element={
+            <ProtectedRoute allowedRoles={[UserRole.ADMIN]}>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="users" element={<UserManagement />} />
+          <Route path="marketplace" element={<MarketplaceManagement />} />
+          <Route path="rental" element={<MarketplaceManagement />} /> {/* Sharing for now */}
+          <Route path="government" element={<GovSchemeManagement />} />
+          <Route path="community" element={<CommunityManagement />} />
+          <Route path="ai" element={<AiManagement />} />
+          <Route path="analytics" element={<AdminDashboard />} />
+          <Route path="reports" element={<AdminDashboard />} />
+          <Route path="notifications" element={<NotificationCenter />} />
+          <Route path="emails" element={<NotificationCenter />} />
+          <Route path="support" element={<SupportFeedback />} />
+          <Route path="feedback" element={<SupportFeedback />} />
+          <Route path="cms" element={<CmsManagement />} />
+          <Route path="media" element={<PlaceholderPage title="Media Library" />} />
+          <Route path="security" element={<SecurityPage />} />
+          <Route path="database" element={<PlaceholderPage title="Database Management" />} />
+          <Route path="logs" element={<SecurityPage />} />
+          <Route path="health" element={<SystemHealthPage />} />
+          <Route path="settings" element={<CmsManagement />} />
+        </Route>
+      </Route>
+    </Routes>
+  );
+}

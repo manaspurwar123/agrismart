@@ -1,0 +1,6 @@
+{
+  "name": "AgriSmart AI",
+  "description": "A comprehensive AI-powered Agricultural Command Center featuring smart weather intelligence, farm mapping, soil analysis, government services, and a vibrant farmer community hub with AI expert consultation and learning resources.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
